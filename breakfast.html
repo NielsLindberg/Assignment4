@@ -1,50 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <!--title of webpage-->
     <title>Niels Lindberg-Poulsen, Food blog</title>
+    <!--set character set to UTF-8 standard-->
     <meta charset="utf-8">
-    <meta lang="en">
+    <!--Set initial scale to 1.0 and width to the viewers device width-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import font family lato with weights 400 & 300 from google's font library-->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300" rel="stylesheet">
+    <!--Import external css file-->
     <link href="production/css/style.css" rel="stylesheet">
+    <!--Import font-awesome stylesheet from bootstrap, this allows the use of 'font' icons which in terms of bandwith
+    requires alot less than using pictures for icons! It also gives all the text attributes such as font-size and color to the icons-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
 
 <body>
+    <!-- The page-wrapper is used to allow pushing the footer down to the bottom of the side using css flexbox -->
     <div class="page-wrapper">
+        <!-- The header elements is 'just' a container but it gives e-readers information about the structure of the webiste that simple div doesnt-->
         <header class="page-header">
+            <!-- same as the header element but with a different meaning for e-readers -->
             <nav class="navigation">
+                <!-- Using an unordered list for the menu -->
                 <ul>
-                    <li><a href="#"><h3>About</h3></a></li>
-                    <li><a href="breakfast.html"><h3>Breakfast</h3></a></li>
+                    <li><a href="index.html"><h3>About</h3></a></li>
+                    <!-- The current page is given the class active which give it some extra styling css -->
+                    <li><a href="#" class="active"><h3>Breakfast</h3></a></li>
                     <li><a href="lunch.html"><h3>Lunch</h3></a></li>
+                    <li><a href="snacks.html"><h3>Snacks</h3></a></li>
                     <li><a href="dinner.html"><h3>Dinner</h3></a></li>
                     <li><a href="contact.html"><h3>Contact</h3></a></li>
                 </ul>
             </nav>
         </header>
+        <!-- same as the header/nav elements but this one tells the e-reader that the main contents of the page resides within-->
         <main class="page-main">
-            <section id="dinner" class="section-container">
-                <h2 class="section-header"><i class="fa fa-user" aria-hidden="true"></i> Dinner recipes</h2>
-                <hr>
-                <section class="entry-container">
-                    <h3 class="food-title">Mango Taco</h3>
-                    <figure class="food-figure">
-                    <!-- using the srcset and sizes attributes to tell the browser what viewport widht the image will take at different viewport sizes and tells
-                    the browser the location of different sized pictures, the result is that the browser will download the smallest picture that it needs and thereby reducing bandwith req-->
-                    <img class="food-pic" src="production\images\Taco-400.jpg"
-                    srcset="production\images\Taco-200.jpg 200w, production\images\Taco-300.jpg 300w, production\images\Taco-400.jpg 400w"
-                    sizes="(min-width: 1601px) 30vw, (min-width: 1001px) 20vw, (min-width: 701px) 30vw, (min-width: 501px) 45vw, 45vw"
-                    alt="Picture of finished taco recipe">
-                    <figcaption><em>The result of my own take on the recipe</em></figcaption>
-                    </figure>
-                    <aside><p>I felt like this recipe was pretty good. It </p>
-                    </aside>
-                </section>
+            <!-- the wip-container is a section for work in progress information -->
+            <section class="wip-container">
+                <!-- The work in progress information is displayed through an h1 with breakpoints -->
+                <h1 class="wip-title">Stay Tuned! <br><br> Currently in the kitchen working on some breakfast recipes.<br><br>If you have any suggestions go to the contact page and write me an email!<br><br>
+                Otherwise, go checkout the dinner recipes!</h1>
             </section>
+        <!-- end of the main contents-->
         </main>
-        <footer id="page-footer" class="page-footer">
+        <!-- fooder elements, even though it looks empty it does have an affect on the visual layout of the page. as im creating a border at the bottom,
+        i guess its just a matter of taste but i like that there is line signaling end of contents.-->
+        <footer class="page-footer">
         </footer>
     </div>
 </body>

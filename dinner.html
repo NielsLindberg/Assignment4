@@ -1,52 +1,326 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <!--title of webpage-->
     <title>Niels Lindberg-Poulsen, Food blog</title>
+    <!--set character set to UTF-8 standard-->
     <meta charset="utf-8">
-    <meta lang="en">
+    <!--Set initial scale to 1.0 and width to the viewers device width-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import font family lato with weights 400 & 300 from google's font library-->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300" rel="stylesheet">
+    <!--Import external css file-->
     <link href="production/css/style.css" rel="stylesheet">
+    <!--Import font-awesome stylesheet from bootstrap, this allows the use of 'font' icons which in terms of bandwith
+    requires alot less than using pictures for icons! It also gives all the text attributes such as font-size and color to the icons-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
 
 <body>
+    <!-- The page-wrapper is used to allow pushing the footer down to the bottom of the side using css flexbox -->
     <div class="page-wrapper">
+        <!-- The header elements is 'just' a container but it gives e-readers information about the structure of the webiste that simple div doesnt-->
         <header class="page-header">
+            <!-- same as the header element but with a different meaning for e-readers -->
             <nav class="navigation">
+                <!-- Using an unordered list for the menu -->
                 <ul>
-                    <li><a href="#"><h3>About</h3></a></li>
+                    <li><a href="index.html"><h3>About</h3></a></li>
                     <li><a href="breakfast.html"><h3>Breakfast</h3></a></li>
                     <li><a href="lunch.html"><h3>Lunch</h3></a></li>
-                    <li><a href="dinner.html"><h3>Dinner</h3></a></li>
+                    <li><a href="snacks.html"><h3>Snacks</h3></a></li>
+                    <!-- The current page is given the class active which give it some extra styling css -->
+                    <li><a href="#" class="active"><h3>Dinner</h3></a></li>
                     <li><a href="contact.html"><h3>Contact</h3></a></li>
                 </ul>
             </nav>
         </header>
+        <!-- same as the header/nav elements but this one tells the e-reader that the main contents of the page resides within-->
         <main class="page-main">
-            <section id="dinner" class="section-container">
-                <h2 class="section-header"><i class="fa fa-user" aria-hidden="true"></i> Dinner recipes</h2>
-                <hr>
-                <section class="entry-container">
-                    <h3 class="food-title">Mango Taco</h3>
-                    <figure class="food-figure">
-                    <!-- using the srcset and sizes attributes to tell the browser what viewport widht the image will take at different viewport sizes and tells
-                    the browser the location of different sized pictures, the result is that the browser will download the smallest picture that it needs and thereby reducing bandwith req-->
-                    <img class="food-pic" src="production\images\Taco-400.jpg"
-                    srcset="production\images\Taco-200.jpg 200w, production\images\Taco-300.jpg 300w, production\images\Taco-400.jpg 400w"
-                    sizes="(min-width: 1601px) 30vw, (min-width: 1001px) 20vw, (min-width: 701px) 30vw, (min-width: 501px) 45vw, 45vw"
-                    alt="Picture of finished taco recipe">
-                    <figcaption><em>The result of my own take on the recipe</em></figcaption>
-                    </figure>
-                    <aside><p>I felt like this recipe was pretty good. It </p>
+            <!-- a section element is again also just a containing element with some extra information for e-readers, the section elements is used to contain stuff that isolated are meaningfull, in other words you should be able to read and understand a section and its sub-elements without reading the rest of the page. Typically a section element will have a header and some content, therefor a div is used in this case.-->
+            <div class="section-container">
+                <!--the entry section holds all the information that is related to a specific entry. In this case a dinner recipe with comments, a picture, ingredients, instructions and rating, this structure is repeated for each instance of class="entry" so i will only make comments for the first one as the DOM structure is identical-->
+                <div class="entry">
+                    <!-- the title section of the entry holds both the title of the recipe aswell as the ratings -->
+                    <section class="food-title-pane">
+                        <h3 class="food-title">Spicy Avocado Melon Tacos</h3>
+                        <!-- the rating is a list of star icons, imported through the bootstrap font-awesome library, setting an element i to class="fa fa-star" displays the star icon
+                    the class start-yes and star-no refers to a css class that either colors the star in black or light grey, symbolizing the rating. Since the icon's are actually delivering information here the rating is also written in the comments section to ensure that no meaning is lost for the visually impaired.-->
+                        <ul class="food-rating">
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                        </ul>
+                        <hr>
+                    </section>
+                    <section class="result">
+                        <h4 class="entry-sub-title">Result  <i class="fa fa-cutlery" aria-hidden="true"></i></h4>
+                        <figure class="food-figure">
+                            <!-- using the srcset and sizes attributes to tell the browser what viewport widht the image will take at
+                            different viewport sizes and tells the browser the location of different sized pictures, the result is that
+                            the browser will download the smallest picture that it needs and thereby reducing bandwith req. In my oppinion this is the most robust way
+                            of doing responsive images as I don't need to know anything about the users devices only how much space my pictures take on different viewport widths-->
+                            <img class="food-pic" src="production/images/Taco-400.JPG" srcset="production/images/Taco-200.JPG 200w, production/images/Taco-300.JPG 300w, production/images/Taco-400.JPG 400w" sizes="(min-width: 1601px) 30vw, (min-width: 1001px) 45vw, (min-width: 701px) 45vw, (min-width: 501px) 95vw, 95vw" alt="Picture of finished taco recipe">
+                        </figure>
+                    </section>
+                    <!-- the ingredients section holds information about the ingreedients used in the recipe-->
+                    <section class="ingredients">
+                        <!-- the shopping-cart item is decorative and as such best practice is to not inform e-readers about it according to WCAG-->
+                        <h4 class="entry-sub-title">Ingredients <i class="fa fa-shopping-cart" aria-hidden="true"></i></h4>
+                        <p>The following amounts are for 4 persons estimated</p>
+                        <!-- using an unordered list since the order of items doesnt matter -->
+                        <ul>
+                            <li>500g hakket oksekød</li>
+                            <li>4 tsk taco krydderi</li>
+                            <li>2 stk moden avocado</li>
+                            <li>1 spsk citronsaft</li>
+                            <li>0.5 stk honning melon</li>
+                            <li>2 stk forårsløg</li>
+                            <li>1 stk løg</li>
+                            <li>4 stk tortillawraps</li>
+                            <li>150g fromage frais</li>
+                            <li>1 spsk olivenolie</li>
+                        </ul>
+                    </section>
+                    <!-- the instructions section holds an order list of actions the user must take to create the recipe-->
+                    <section class="instructions">
+                        <h4 class="entry-sub-title">Instructions <i class="fa fa-gears" aria-hidden="true"></i></h4>
+                        <!-- using an ordered list here since the order of actions matters alot in this case-->
+                        <ol>
+                            <li>Cook the meat in some oil together with the taco spices</li>
+                            <li>Cut the avocado in dices and add lemon juice</li>
+                            <li>Cut the melons in dizes with same sizes as the avocado</li>
+                            <li>Carefully mix the avocado dizes with the melon dizes. Mix together with the cut springonions and red onions</li>
+                            <li>Warm the tortillaes, fold and fill with the spiced meat, salsa and creme fraiche</li>
+                        </ol>
+                    </section>
+                    <!-- using the aside element here since the information cannot be understood by its own, the aside elements tells the e-reader that this content is releated to
+                    the content that is on the same semantical level -> result,ingredients,instructions-->
+                    <aside class="recipe-comments">
+                        <h4 class="entry-sub-title">Comments <i class="fa fa-comment" aria-hidden="true"></i></h4>
+                        <p>I felt like this recipe was pretty good. It was very easy and fast to make and required less stuff to prepare than the usual taco. It tastes pretty good and is a good alternative taco recipe that you can prepare on the days where you want something fast and tasty.
+                            <br>
+                            <br> Overall i'll give it 3 out of 5 stars. As simple as it is to make; as simple it tastes. I would prefer the ordinary taco recipe 4 out of 5 times.</p>
                     </aside>
-                </section>
-            </section>
+                </div>
+                <!-- from here on down to the end of the section-container element the above DOM structure repeats itself and as such no comments are included-->
+                <div class="entry">
+                    <section class="food-title-pane">
+                        <h3 class="food-title">Chicken with root vegetables</h3>
+                        <ul class="food-rating">
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                        </ul>
+                        <hr>
+                    </section>
+                    <section class="result">
+                        <h4 class="entry-sub-title">Result  <i class="fa fa-cutlery" aria-hidden="true"></i></h4>
+                        <figure class="food-figure">
+                            <img class="food-pic" src="production/images/ChickenNStuff-400.jpg" srcset="production/images/ChickenNStuff-200.jpg 200w, production/images/ChickenNStuff-300.jpg 300w, production/images/ChickenNStuff-400.jpg 400w" sizes="(min-width: 1601px) 30vw, (min-width: 1001px) 45vw, (min-width: 701px) 45vw, (min-width: 501px) 95vw, 95vw" alt="Picture of finished chicken & root vegetables recipe">
+                        </figure>
+                    </section>
+                    <section class="ingredients">
+                        <h4 class="entry-sub-title">Ingredients <i class="fa fa-shopping-cart" aria-hidden="true"></i></h4>
+                        <p>The following amounts are for 4 persons estimated</p>
+                        <ul>
+                            <li>1 whole chicken</li>
+                            <li>4-5 stk hvidløg</li>
+                            <li>2 tsk oregano</li>
+                            <li>1 tsk salt</li>
+                            <li>400g root vegetables</li>
+                            <li>500g potatoes </li>
+                            <li>1 tsk peber</li>
+                        </ul>
+                    </section>
+                    <section class="instructions">
+                        <h4 class="entry-sub-title">Instructions <i class="fa fa-gears" aria-hidden="true"></i></h4>
+                        <ol>
+                            <li>Cut up the chicken into the usual pieces</li>
+                            <li>Rub in 2 mashed garlic, oregano, salt & pepper</li>
+                            <li>Put the chicken pieces down into a roasting pan together with the potatoes and root vegetables slized into smaller pieces</li>
+                            <li>Add some garlic and springle over some olive oil</li>
+                            <li>Cook for about 45 minutes at 200 degrees celcius.</li>
+                        </ol>
+                    </section>
+                    <aside class="recipe-comments">
+                        <h4 class="entry-sub-title">Comments <i class="fa fa-comment" aria-hidden="true"></i></h4>
+                        <p>This was actually the first time i used a whole chicken for anything. You can really taste the difference and its also cheaper! This dish is very tasty, next time i'll probably serve a green salat together with it. When everything in the dish comes out of the oven the colors can get very monotone so a green salad can balance that out aswell as bring some freshness to the dish.
+                            <br>
+                            <br> Overall i'll give it 4 out of 5 stars.</p>
+                    </aside>
+                </div>
+                <div class="entry">
+                    <section class="food-title-pane">
+                        <h3 class="food-title">Honey marinated salmon</h3>
+                        <ul class="food-rating">
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                        </ul>
+                        <hr>
+                    </section>
+                    <section class="result">
+                        <h4 class="entry-sub-title">Result  <i class="fa fa-cutlery" aria-hidden="true"></i></h4>
+                        <figure class="food-figure">
+                            <img class="food-pic" src="production/images/Salmon-400.jpg" srcset="production/images/Salmon-200.jpg 200w, production/images/Salmon-300.jpg 300w, production/images/Salmon-400.jpg 400w" sizes="(min-width: 1601px) 30vw, (min-width: 1001px) 45vw, (min-width: 701px) 45vw, (min-width: 501px) 95vw, 95vw" alt="Picture of finished honey marinated salmon recipe">
+                        </figure>
+                    </section>
+                    <section class="ingredients">
+                        <h4 class="entry-sub-title">Ingredients <i class="fa fa-shopping-cart" aria-hidden="true"></i></h4>
+                        <p>The following amounts are estimated for 4 persons.</p>
+                        <ul>
+                            <li>4 stk laksesteaks</li>
+                            <li>2 spsk soyasauce</li>
+                            <li>2 spsk honning</li>
+                            <li>1 stk lime</li>
+                            <li>1 knsp sort peber</li>
+                            <li>1 spsk rapsolie</li>
+                            <li>1 stk rødløg</li>
+                            <li>2 stk hvidløg</li>
+                            <li>300g frisk pasta</li>
+                            <li>500g friske grønne asparges</li>
+                        </ul>
+                    </section>
+                    <section class="instructions">
+                        <h4 class="entry-sub-title">Instructions <i class="fa fa-gears" aria-hidden="true"></i></h4>
+                        <ol>
+                            <li>Mix soyasauce, honey, limejuice, pebber and oliveoil</li>
+                            <li>Slize the onions and turn them in the marinade</li>
+                            <li>Turn the salmon in the marinade</li>
+                            <li>Cook the salmon in a preheated 225 degrees oven for 10 to 12 minutes</li>
+                            <li>Cook the pasta according to package instructions</li>
+                            <li>Cook the asparages for about 1-2 minutes in pan boiling water</li>
+                            <li>Serve everything together on a plate</li>
+                        </ol>
+                    </section>
+                    <aside class="recipe-comments">
+                        <h4 class="entry-sub-title">Comments <i class="fa fa-comment" aria-hidden="true"></i></h4>
+                        <p>This recipe had everything. Was easy to make, tasty, healthy and it looks very good. Not really much to comment on, i would serve this dish exactly the same way <strong>when</strong> i'll make it again.
+                            <br>
+                            <br>Overall i'll give it 5 out of 5 stars.</p>
+                    </aside>
+                </div>
+                <div class="entry">
+                    <section class="food-title-pane">
+                        <h3 class="food-title">Tortillini with Broccoli & Bacon</h3>
+                        <ul class="food-rating">
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                        </ul>
+                        <hr>
+                    </section>
+                    <section class="result">
+                        <h4 class="entry-sub-title">Result  <i class="fa fa-cutlery" aria-hidden="true"></i></h4>
+                        <figure class="food-figure">
+                            <img class="food-pic" src="production/images/Tortellini-400.jpg" srcset="production/images/Tortellini-200.jpg 200w, production/images/Tortellini-300.jpg 300w, production/images/Tortellini-400.jpg 400w" sizes="(min-width: 1601px) 30vw, (min-width: 1001px) 45vw, (min-width: 701px) 45vw, (min-width: 501px) 95vw, 95vw" alt="Picture of finished torellini with bacon & brocolli recipe">
+                        </figure>
+                    </section>
+                    <section class="ingredients">
+                        <h4 class="entry-sub-title">Ingredients <i class="fa fa-shopping-cart" aria-hidden="true"></i></h4>
+                        <p>The following amounts are estimated for 4 persons.</p>
+                        <ul>
+                            <li>2 packages w. torellini</li>
+                            <li>400g bacon in dizes</li>
+                            <li>2.5 dl cream</li>
+                            <li>1 stk frisk basilikum</li>
+                            <li>1 knsp muskatnød</li>
+                            <li>1 knsp salt</li>
+                            <li>75g revet mozzarella</li>
+                            <li>2 spsk rasp</li>
+                        </ul>
+                    </section>
+                    <section class="instructions">
+                        <h4 class="entry-sub-title">Instructions <i class="fa fa-gears" aria-hidden="true"></i></h4>
+                        <ol>
+                            <li>Boil the tortellini's according to package instructions 'al dente'</li>
+                            <li>Pan roast the bacon dizes and set them aside on some paper to suck out grease</li>
+                            <li>Cut the brocolli og boil very lightly</li>
+                            <li>Bring the cream & basils to a boil. Add spices og poor over the tortellini</li>
+                            <li>Put everything into a roasting pan, springle over mozarella & breadcrumbs</li>
+                            <li>Cook for about 10 minutes at 225 degrees preheated.</li>
+                        </ol>
+                    </section>
+                    <aside class="recipe-comments">
+                        <h4 class="entry-sub-title">Comments <i class="fa fa-comment" aria-hidden="true"></i></h4>
+                        <p>This dish was very easy to make, however the taste wasn't very inspiring. Maybe the quality of the tortellini's can bring it up, but atleast with the supermarket tortellini's you can buy in Denmark this dish simply lacks flavor.
+                            <br>
+                            <br> Overall i'll give it 2 out of 5 stars. The taste was just to monotome. If i want something in this alley i'll make lasagne.</p>
+                    </aside>
+                </div>
+                <div class="entry">
+                    <section class="food-title-pane">
+                        <h3 class="food-title">Chickenbreast with Oranges & Coriander sauce</h3>
+                        <ul class="food-rating">
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                        </ul>
+                        <hr>
+                    </section>
+                    <section class="result">
+                        <h4 class="entry-sub-title">Result  <i class="fa fa-cutlery" aria-hidden="true"></i></h4>
+                        <figure class="food-figure">
+                            <img class="food-pic" src="production/images/Chicken-400.JPG" srcset="production/images/Chicken-200.JPG 200w, production/images/Chicken-300.JPG 300w, production/images/Chicken-400.JPG 400w" sizes="(min-width: 1601px) 30vw, (min-width: 1001px) 45vw, (min-width: 701px) 45vw, (min-width: 501px) 95vw, 95vw" alt="Picture of finished chicken with coriander and oranges recipe">
+                        </figure>
+                    </section>
+                    <section class="ingredients">
+                        <h4 class="entry-sub-title">Ingredients <i class="fa fa-shopping-cart" aria-hidden="true"></i></h4>
+                        <p>The following amounts are estimated for 4 persons.</p>
+                        <ul>
+                            <li>5 stk korianderfrø</li>
+                            <li>1 tsk kommenfrø</li>
+                            <li>1 tsk chilipeber</li>
+                            <li>450g kyllingebryst</li>
+                            <li>3 stk skalotteløg</li>
+                            <li>1 stk gulerødder</li>
+                            <li>5g ingefær</li>
+                            <li>1 stk fennikelknold</li>
+                            <li>3 stk appelsin</li>
+                            <li>1 stk koriander</li>
+                            <li>2 spsk hasselnøddeoile</li>
+                            <li>1 knsp salt</li>
+                            <li>1 knsp sort peber</li>
+                        </ul>
+                    </section>
+                    <section class="instructions">
+                        <h4 class="entry-sub-title">Instructions <i class="fa fa-gears" aria-hidden="true"></i></h4>
+                        <ol>
+                            <li>Mix the spices in a mortar & rub the chicken with it, let it rest for 20 minutes</li>
+                            <li>Cook the chicken with oil at medium heat, 3 minutes each side.</li>
+                            <li>Move the chicken to the side, cover them up.</li>
+                            <li>Onions, carrots, ginger & fenikkel should be washed or cut into smaller pieces.</li>
+                            <li>Cook the cut vegetables, add the jest & juice from the oranges and let the liquid reduce by about 1/3.</li>
+                            <li>Add the chicken breasts and let it simmer for about 6 more minutes</li>
+                        </ol>
+                    </section>
+                    <aside class="recipe-comments">
+                        <h4 class="entry-sub-title">Comments <i class="fa fa-comment" aria-hidden="true"></i></h4>
+                        <p>We went with a more simple version of this dish using fresh koriander and dried kommen aswell as just standard oliveoil instead of the hasselnutoil. We found that we needed to add some orange juice on top of the 3 oranges mentioned in the recipe or else it would have been like a vegetable mush instead of a sauce. So a good advice is to keep some orange juice to add until you find the right balance. The dish was actually suprisingly tasty, next time i'll cook some rice to go with it.
+                            <br>
+                            <br> Overall i'll give it 3 out of 5 stars. If there were rice together with it it could probably go up to a 4 out of 5.</p>
+                    </aside>
+                </div>
+                <!-- end of the section-container element-->
+            </div>
+            <!-- end of the main contents-->
         </main>
-        <footer id="page-footer" class="page-footer">
+        <!-- fooder elements, even though it looks empty it does have an affect on the visual layout of the page. as im creating a border at the bottom,
+        i guess its just a matter of taste but i like that there is line signaling end of contents.-->
+        <footer class="page-footer">
         </footer>
     </div>
 </body>
-
 </html>

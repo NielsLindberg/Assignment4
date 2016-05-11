@@ -1,51 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <!--title of webpage-->
     <title>Niels Lindberg-Poulsen, Food blog</title>
+    <!--set character set to UTF-8 standard-->
     <meta charset="utf-8">
-    <meta lang="en">
+    <!--Set initial scale to 1.0 and width to the viewers device width-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import font family lato with weights 400 & 300 from google's font library-->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300" rel="stylesheet">
+    <!--Import external css file-->
     <link href="production/css/style.css" rel="stylesheet">
+    <!--Import font-awesome stylesheet from bootstrap, this allows the use of 'font' icons which in terms of bandwith
+    requires alot less than using pictures for icons! It also gives all the text attributes such as font-size and color to the icons-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
 
 <body>
+    <!-- The page-wrapper is used to allow pushing the footer down to the bottom of the side using css flexbox -->
     <div class="page-wrapper">
+        <!-- The header elements is 'just' a container but it gives e-readers information about the structure of the webiste that simple div doesnt-->
         <header class="page-header">
+            <!-- same as the header element but with a different meaning for e-readers -->
             <nav class="navigation">
+                <!-- Using an unordered list for the menu -->
                 <ul>
                     <li><a href="index.html"><h3>About</h3></a></li>
                     <li><a href="breakfast.html"><h3>Breakfast</h3></a></li>
                     <li><a href="lunch.html"><h3>Lunch</h3></a></li>
                     <li><a href="dinner.html"><h3>Dinner</h3></a></li>
-                    <li><a href="contact.html"><h3>Contact</h3></a></li>
+                    <li><a href="snacks.html"><h3>Dinner</h3></a></li>
+                    <!-- The current page is given the class active which give it some extra styling css -->
+                    <li><a href="#" class="active"><h3>Contact</h3></a></li>
                 </ul>
             </nav>
         </header>
+        <!-- same as the header/nav elements but this one tells the e-reader that the main contents of the page resides within-->
         <main class="page-main">
-            <section id="contact" class="section-container">
-            <form action="index.php" method="post" target="_blank">
-                <div>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" autofocus="true"/>
-                </div>
-                <div>
-                    <label for="telephone">Phonenumber:</label>
-                    <input type="text" id="telephone" name="telephone"/>
-                </div>
-                <div>
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message"></textarea>
-                </div>
-                <div class="button">
-                    <button type="submit" id="Submit" value="Submit" name="Submit">Submit</button>
-                </div>
-            </form>
+            <!-- the section container elements holds all the different contant sections, the generic name container is used for the class as I'm reusing the
+            css styling for this container w. a container on the about page-->
+            <section class="container">
+                <!-- The overal contact information is displayed through an h2 heading and a paragraph with breakpoints
+            the higher level heading of h2 compared to the following headings of h4 used in the contact sections together with the order of elements, ensures that
+            users will read this section first.-->
+                <h2>Contact details</h2>
+                <p>There are several ways you can get in contact with me, depending of the nature of your enquiry.
+                    <br> Look through the different contact sections to find out how you should get in touch with me.</p>
+                <!-- A horizontal ruler plus another breakpoint creates spacing between the top section and the underlying contact sections -->
+                <hr>
+                <br>
+                <!-- A linkedin section with a h4 heading and paragraph with a link. To tell the user how and when you should use these contact
+                details to get in touch with me-->
+                <section class="linkedin">
+                    <h4>LinkedIn</h4>
+                    <p>If youre enquiry is career related, add me to <a href="https://dk.linkedin.com/in/niels-lindberg-poulsen-440ab335" target="_blank">LinkedIn</a> and sent me a private message.</p>
+                </section>
+                <!-- A private section with a h4 heading and paragraph. To tell the user how and when you should use these contact
+                details to get in touch with me-->
+                <section class="private">
+                    <!-- the horizontal ruler is placed before contents because we only want a ruler if there is contents after it-->
+                    <hr>
+                    <h4>Private</h4>
+                    <p>If your enquiry is a private matter or if if you have recipe suggestion related to this site, write to eighthourcream@gmail.com</p>
+                </section>
+                <!-- A facebook section with a h4 heading and paragraph with a link. To tell the user how and when you should use these contact
+                details to get in touch with me-->
+                <section class="facebook">
+                    <!-- the horizontal ruler is placed before contents because we only want a ruler if there is contents after it-->
+                    <hr>
+                    <h4>Facebook</h4>
+                    <p>If you plan on having a continuing dialog with me you can add me on <a href="https://www.facebook.com/niels.lindbergpoulsen" target="_blank">facebook</a></p>
+                </section>
+                <!-- A work section with a h4 heading and paragraph. To tell the user how and when you should use these contact
+                details to get in touch with me-->
+                <section class="work">
+                    <!-- the horizontal ruler is placed before contents because we only want a ruler if there is contents after it-->
+                    <hr>
+                    <h4>Work</h4>
+                    <p>If your enquiry is work related, write to niels.lindberg-poulsen@nordea.com</p>
+                </section>
+                <!-- A github section with a h4 heading and paragraph with a link. To tell the user how and when you should use these contact
+                details to get in touch with me-->
+                <section class="github">
+                    <!-- the horizontal ruler is placed before contents because we only want a ruler if there is contents after it-->
+                    <hr>
+                    <h4>Github</h4>
+                    <p>If your enquiry is related to programming in general sent me a message on <a href="https://github.com/NielsLindberg">github</a></p>
+                </section>
+                <!-- A school section with a h4 heading and paragraph. To tell the user how and when you should use these contact
+                details to get in touch with me-->
+                <section class="school">
+                    <!-- the horizontal ruler is placed before contents because we only want a ruler if there is contents after it-->
+                    <hr>
+                    <h4>School</h4>
+                    <p>If your enquiry is school related, write to nielin-5@student.ltu.se</p>
+                </section>
             </section>
+            <!-- end of the main contents-->
         </main>
-        <footer id="page-footer" class="page-footer">
+        <!-- fooder elements, even though it looks empty it does have an affect on the visual layout of the page. as im creating a border at the bottom,
+        i guess its just a matter of taste but i like that there is line signaling end of contents.-->
+        <footer class="page-footer">
         </footer>
     </div>
 </body>

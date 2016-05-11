@@ -6,6 +6,7 @@ module.exports = function(grunt) {
                 options: {
                     engine: 'im',
                     newFilesOnly: true,
+                    autoOrient: true,
                     sizes: [
                         { width: 200 },
                         { width: 300 },
