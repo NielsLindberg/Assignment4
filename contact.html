@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Niels Lindberg-Poulsen, Food blog</title>
+    <meta charset="utf-8">
+    <meta lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300" rel="stylesheet">
+    <link href="production/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html"><h3>About</h3></a></li>
+                    <li><a href="breakfast.html"><h3>Breakfast</h3></a></li>
+                    <li><a href="lunch.html"><h3>Lunch</h3></a></li>
+                    <li><a href="dinner.html"><h3>Dinner</h3></a></li>
+                    <li><a href="contact.html"><h3>Contact</h3></a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="page-main">
+            <section id="contact" class="section-container">
+            <form action="index.php" method="post" target="_blank">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" autofocus="true"/>
+                </div>
+                <div>
+                    <label for="telephone">Phonenumber:</label>
+                    <input type="text" id="telephone" name="telephone"/>
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <div class="button">
+                    <button type="submit" id="Submit" value="Submit" name="Submit">Submit</button>
+                </div>
+            </form>
+            </section>
+        </main>
+        <footer id="page-footer" class="page-footer">
+        </footer>
+    </div>
+</body>
+
+</html>

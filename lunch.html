@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Niels Lindberg-Poulsen, Food blog</title>
+    <meta charset="utf-8">
+    <meta lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300" rel="stylesheet">
+    <link href="production/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#"><h3>About</h3></a></li>
+                    <li><a href="breakfast.html"><h3>Breakfast</h3></a></li>
+                    <li><a href="lunch.html"><h3>Lunch</h3></a></li>
+                    <li><a href="dinner.html"><h3>Dinner</h3></a></li>
+                    <li><a href="contact.html"><h3>Contact</h3></a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="page-main">
+            <section id="dinner" class="section-container">
+                <h2 class="section-header"><i class="fa fa-user" aria-hidden="true"></i> Dinner recipes</h2>
+                <hr>
+                <section class="entry-container">
+                    <h3 class="food-title">Mango Taco</h3>
+                    <figure class="food-figure">
+                        <!-- using the srcset and sizes attributes to tell the browser what viewport widht the image will take at different viewport sizes and tells
+                    the browser the location of different sized pictures, the result is that the browser will download the smallest picture that it needs and thereby reducing bandwith req-->
+                        <img class="food-pic" src="production\images\Taco-400.jpg" srcset="production\images\Taco-200.jpg 200w, production\images\Taco-300.jpg 300w, production\images\Taco-400.jpg 400w" sizes="(min-width: 1601px) 30vw, (min-width: 1001px) 20vw, (min-width: 701px) 30vw, (min-width: 501px) 45vw, 45vw" alt="Picture of finished taco recipe">
+                        <figcaption><em>The result of my own take on the recipe</em></figcaption>
+                    </figure>
+                    <aside>
+                        <p>I felt like this recipe was pretty good. It was very easy and fast to make and required less stuff to prepare than the usual taco. It tastes pretty good and is a good alternative taco recipe that you can prepare on the days where you want something fast and tasty.</p>
+                    </aside>
+                    <ul class="stars">
+                        <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star star-yes" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                    </ul>
+                </section>
+            </section>
+        </main>
+        <footer id="page-footer" class="page-footer">
+        </footer>
+    </div>
+</body>
+
+</html>
