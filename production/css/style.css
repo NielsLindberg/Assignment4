@@ -31,7 +31,8 @@
     }
     /* the pager header is set to 100% width and is set to fix to the top of the page with a z-index: 99999 and height:50px,
     what this does is that it ensures that the header will always appear on top of the rest of the contents when scrolling down/up the page.
-    Also including some shadows and borders on the element*/
+    Also including some shadows and borders on the element. Setting the pageheader to flex with direction column & justify center to place
+    the navigation menu in the center vertically*/
 
     .page-header {
         width: 100%;
@@ -39,6 +40,15 @@
         z-index: 99999;
         top: 0;
         height: 50px;
+        display:-webkit-flex;
+        display:-ms-flexbox;
+        display:flex;
+        -webkit-flex-direction:column;
+            -ms-flex-direction:column;
+                flex-direction:column;
+        -webkit-justify-content:center;
+            -ms-flex-pack:center;
+                justify-content:center;
         background-color: rgb(255, 255, 255);
         border-bottom: 1px solid rgb(220, 220, 220);
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
@@ -155,13 +165,11 @@
     }
     /*---------------------PAGE:HEADER-------------------*/
     /* set the navbar links to display inlink-block with center alignment and black color. Creating round edges around the element*/
-
     .navigation a {
         display: inline-block;
         text-align: center;
         color: rgb(0, 0, 0);
-        padding-left: 10px;
-        padding-right: 10px;
+        padding:10px;
         border-radius: 10px;
     }
     /* when hovering a navigation link element change background color*/
@@ -176,7 +184,6 @@
     }
     /* The unordered navigation list is set to display-flex, you could achieve the same through other methods but since i'm using flexbox to place content on this site
     in general i'll continue with that trend here, justify content makes ul's child elements grow from the middle (align center). Removing the list-style-type styling.*/
-
     .navigation ul {
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -184,22 +191,22 @@
         -webkit-justify-content: center;
         -ms-flex-pack: center;
         justify-content: center;
+        -webkit-flex-wrap:wrap;
+            -ms-flex-wrap:wrap;
+                flex-wrap:wrap;
         margin: 0;
         padding: 0;
         list-style-type: none;
     }
-    /*the height of the list items is set to the header height with a line-height of 40px and padding of 5 placing it in the middle of the header vertically*/
-
-    .navigation li {
-        height: 50px;
-        line-height: 40px;
-        padding: 5px;
-        margin: 0;
-    }
-    /*The work in progress container is centered on the page*/
     /*---------------------MAIN PAGE SECTIONS-------------------*/
+    /*The work in progress container is centered on the page, a very light grey color is given as background color.a border radius of 20px and a padding 20 px is also set
+    margin bottom gives some space down to the placeholder recipes*/
     .wip-container {
-        margin: auto;
+        margin-bottom:10px;
+        background-color:rgb(240,240,240);
+        width: 100%;
+        padding:20px;
+        border-radius: 20px;
     }
     /* the container used for the about & contact page is set to center horizontally and with a max-width of 800px aand some additional padding to the headerpane */
 
@@ -249,8 +256,8 @@
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         -ms-flex-line-pack: start;
-        -webkit-align-content: flex-start;
-        align-content: flex-start;
+                -webkit-align-content: flex-start;
+                align-content: flex-start;
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
         border: 1px solid rgb(220, 220, 220);
         border-radius: 2px;
@@ -401,11 +408,14 @@
     this ensures that the navigation menu fits on mobile devices */
     @media screen and (max-width:600px) {
         .navigation a {
-            padding-left: 2px;
-            padding-right: 2px;
+            padding:2px 5px 2px 5px;
+            border-radius:5px;
         }
         .navigation a h3 {
             font-size: 14px;
+        }
+        .navigation li {
+            margin: 2px 5px 2px 5px;
         }
     }
 

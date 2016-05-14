@@ -37,14 +37,84 @@
             </nav>
         </header>
         <!-- same as the header/nav elements but this one tells the e-reader that the main contents of the page resides within-->
+        <!-- same as the header/nav elements but this one tells the e-reader that the main contents of the page resides within-->
         <main class="page-main">
-            <!-- the wip-container is a section for work in progress information -->
-            <section class="wip-container">
-                <!-- The work in progress information is displayed through an h1 with breakpoints -->
-                <h1 class="wip-title">Stay Tuned! <br><br> Currently in the kitchen working on some lunch recipes.<br><br>If you have any suggestions go to the contact page and write me an email!<br><br>
-                Otherwise, go checkout the dinner recipes!</h1>
-            </section>
-        <!-- end of the main contents-->
+            <!-- a section element is again also just a containing element with some extra information for e-readers, the section elements is used to contain stuff that isolated are meaningfull, in other words you should be able to read and understand a section and its sub-elements without reading the rest of the page. Typically a section element will have a header and some content, therefor a div is used in this case.-->
+            <div class="section-container">
+                <!-- the wip-container is a section for work in progress information -->
+                <section class="wip-container">
+                    <!-- The work in progress information is displayed through an h3 with breakpoints -->
+                    <h3 class="wip-title">Stay Tuned! <br><br> Currently in the kitchen working on some lunch recipes.<br><br>If you have any suggestions go to the contact page and write me an email!<br><br>
+                Otherwise, go checkout the dinner recipes!</h3>
+                </section>
+                <!--the entry section holds all the information that is related to a specific entry. In this case a dinner recipe with comments, a picture, ingredients, instructions and rating, this structure is repeated for each instance of class="entry" so i will only make comments for the first one as the DOM structure is identical-->
+                <div class="entry">
+                    <!-- the title section of the entry holds both the title of the recipe aswell as the ratings -->
+                    <section class="food-title-pane">
+                        <h3 class="food-title">Lunch placeholder recipe</h3>
+                        <!-- the rating is a list of star icons, imported through the bootstrap font-awesome library, setting an element i to class="fa fa-star" displays the star icon
+                    the class start-yes and star-no refers to a css class that either colors the star in black or light grey, symbolizing the rating. Since the icon's are actually delivering information here the rating is also written in the comments section to ensure that no meaning is lost for the visually impaired.-->
+                        <ul class="food-rating">
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star star-no" aria-hidden="true"></i></li>
+                        </ul>
+                        <hr>
+                    </section>
+                    <section class="result">
+                        <h4 class="entry-sub-title">Result  <i class="fa fa-cutlery" aria-hidden="true"></i></h4>
+                        <figure class="food-figure">
+                            <!-- using the srcset and sizes attributes to tell the browser what viewport widht the image will take at
+                            different viewport sizes and tells the browser the location of different sized pictures, the result is that
+                            the browser will download the smallest picture that it needs and thereby reducing bandwith req. In my oppinion this is the most robust way
+                            of doing responsive images as I don't need to know anything about the users devices only how much space my pictures take on different viewport widths-->
+                            <img class="food-pic" src="http://placehold.it/400x700" srcset="http://placehold.it/200x350 200w, http://placehold.it/300x500 300w, http://placehold.it/400x700 400w" sizes="(min-width: 1601px) 30vw, (min-width: 1001px) 45vw, (min-width: 701px) 45vw, (min-width: 501px) 95vw, 95vw" alt="placeholder picture">
+                        </figure>
+                    </section>
+                    <!-- the ingredients section holds information about the ingreedients used in the recipe-->
+                    <section class="ingredients">
+                        <!-- the shopping-cart item is decorative and as such best practice is to not inform e-readers about it according to WCAG-->
+                        <h4 class="entry-sub-title">Ingredients <i class="fa fa-shopping-cart" aria-hidden="true"></i></h4>
+                        <p>The following amounts are for 4 persons estimated</p>
+                        <!-- using an unordered list since the order of items doesnt matter -->
+                        <ul>
+                            <li>Ingredient 1</li>
+                            <li>Ingredient 2</li>
+                            <li>Ingredient 3</li>
+                            <li>Ingredient 4</li>
+                            <li>Ingredient 5</li>
+                            <li>Ingredient 6</li>
+                            <li>Ingredient 7</li>
+                            <li>Ingredient 8</li>
+                            <li>Ingredient 9</li>
+                            <li>Ingredient 10</li>
+                        </ul>
+                    </section>
+                    <!-- the instructions section holds an order list of actions the user must take to create the recipe-->
+                    <section class="instructions">
+                        <h4 class="entry-sub-title">Instructions <i class="fa fa-gears" aria-hidden="true"></i></h4>
+                        <!-- using an ordered list here since the order of actions matters alot in this case-->
+                        <ol>
+                            <li>Take ingredient 1 and mix with ingredient 2-3</li>
+                            <li>If you drop ingredient 6 on the floor use ingredient 7+8 instead</li>
+                            <li>Divivde ingredients 9 with ingredients 3 times 2</li>
+                            <li>Eat ingredient 10</li>
+                            <li>Cook for 10 minutes in the oven preheated with 200 degree celcius</li>
+                        </ol>
+                    </section>
+                    <!-- using the aside element here since the information cannot be understood by its own, the aside elements tells the e-reader that this content is releated to
+                    the content that is on the same semantical level -> result,ingredients,instructions-->
+                    <aside class="recipe-comments">
+                        <h4 class="entry-sub-title">Comments <i class="fa fa-comment" aria-hidden="true"></i></h4>
+                        <p>I felt like this recipe didnt really make any sense as it only uses placeholder information and as such it was impossible to actually make it. I mean what is ingredient 6 even, and why does it assume that i will drop it on the floor?
+                            <br>
+                            <br> Overall i'll give it 0 out of 5 stars. This might be the worst recipe i have ever read.</p>
+                    </aside>
+                </div>
+            </div>
+            <!-- end of the main contents-->
         </main>
         <!-- fooder elements, even though it looks empty it does have an affect on the visual layout of the page. as im creating a border at the bottom,
         i guess its just a matter of taste but i like that there is line signaling end of contents.-->
